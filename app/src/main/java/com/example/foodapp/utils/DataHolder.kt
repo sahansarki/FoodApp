@@ -2,7 +2,7 @@ package com.example.foodapp.utils
 
 import com.example.foodapp.enums.RepositoryStatus
 
-class DataHolder<out T> private constructor(val status: RepositoryStatus, val data: T?, val error: FoodError?) {
+class DataHolder<T> private constructor(val status: RepositoryStatus, val data: T?, val error: FoodError?) {
 
     companion object {
 
