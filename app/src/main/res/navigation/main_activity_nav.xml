@@ -19,8 +19,9 @@
         android:name="com.example.foodapp.ui.fragments.foodBasketFragment.FoodBasketFragment"
         android:label="fragment_food_basket"
         tools:layout="@layout/fragment_food_basket" >
+
         <argument
-            android:name="food"
-            app:argType="com.example.foodapp.model.Food" />
+            android:name="Foods"
+            app:argType="com.example.foodapp.model.Food[]" />
     </fragment>
 </navigation>
