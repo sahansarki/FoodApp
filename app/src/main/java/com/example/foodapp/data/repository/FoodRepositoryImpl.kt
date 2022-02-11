@@ -4,15 +4,16 @@ import com.example.foodapp.data.remote.api.FoodApi
 import com.example.foodapp.data.remote.reqres.DeleteFoodFromBasketResponse
 import com.example.foodapp.data.remote.reqres.FoodsFromBasketResponse
 import com.example.foodapp.data.remote.reqres.FoodsResponse
+import com.example.foodapp.repository.FoodRepository
 
-class FoodRepositoryImpl(private val foodApi: FoodApi) {
+class FoodRepositoryImpl(private val foodApi: FoodApi): FoodRepository {
 
-    suspend fun getAllFoods(): FoodsResponse {
+    override suspend fun getAllFoods(): FoodsResponse {
         return foodApi.getAllFoods()
     }
 
 
-    suspend fun addFoodToBasket(
+    override suspend fun addFoodToBasket(
         yemek_adi: String,
         yemek_resim_adi: String,
         yemek_fiyat: Int,
@@ -23,17 +24,17 @@ class FoodRepositoryImpl(private val foodApi: FoodApi) {
     }
 
 
-    suspend fun getFoodsFromBasket(kullanici_adi: String): FoodsFromBasketResponse {
+    override suspend fun getFoodsFromBasket(kullanici_adi: String): FoodsFromBasketResponse {
         return foodApi.getFoodsFromBasket(kullanici_adi)
     }
 
 
-    suspend fun deleteFoodFromBasket(sepet_yemek_id: Int, kullanici_adi: String): DeleteFoodFromBasketResponse {
+    override suspend fun deleteFoodFromBasket(sepet_yemek_id: Int, kullanici_adi: String): DeleteFoodFromBasketResponse {
         return foodApi.deleteFoodFromBasket(sepet_yemek_id, kullanici_adi)
     }
 
 
-    suspend fun getFoodsPhoto(foodName: String) {
+    override suspend fun getFoodsPhoto(foodName: String) {
         return foodApi.getFoodsPhoto(foodName)
     }
 }
