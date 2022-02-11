@@ -5,8 +5,9 @@ import android.view.View
 import com.example.foodapp.R
 import com.example.foodapp.base.BaseFragment
 import com.example.foodapp.databinding.FragmentFoodBasketBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class FoodBasketFragment: BaseFragment<FragmentFoodBasketBinding>(FragmentFoodBasketBinding::inflate) {
 
     companion object {
