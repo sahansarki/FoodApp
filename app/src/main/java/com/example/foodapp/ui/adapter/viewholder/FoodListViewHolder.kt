@@ -12,9 +12,12 @@ class FoodListViewHolder(
         private val binding: FoodItemRowBinding,
 ): RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(food: Food) {
+    fun bind(food: Food, orderFood: (food: Food) -> Unit) {
         binding.food = food
         binding.foodPhoto.loadImage(FOOD_PHOTOS_URL + food.yemek_resim_adi)
+        binding.foodCard.setOnClickListener {
+            orderFood(food)
+        }
 
     }
 

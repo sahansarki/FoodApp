@@ -9,7 +9,9 @@ import com.example.foodapp.R
 import com.example.foodapp.base.BaseFragment
 import com.example.foodapp.databinding.FragmentFoodListBinding
 import com.example.foodapp.enums.RepositoryStatus
+import com.example.foodapp.model.Food
 import com.example.foodapp.ui.adapter.recyclerview.FoodListRecyclerAdapter
+import com.example.foodapp.ui.fragments.foodBottomSheetFragment.FoodBottomSheetFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -30,7 +32,9 @@ class FoodListFragment: BaseFragment<FragmentFoodListBinding>(FragmentFoodListBi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        foodListAdapter = FoodListRecyclerAdapter(arrayListOf())
+        foodListAdapter = FoodListRecyclerAdapter(arrayListOf()){
+            openBottomSheet(it)
+        }
 
         with(fragmentDataBinding.foodListRecyclerView) {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
@@ -39,6 +43,14 @@ class FoodListFragment: BaseFragment<FragmentFoodListBinding>(FragmentFoodListBi
         }
         foodListFragmentViewModel.getAllFoods()
         observeFoodList()
+    }
+
+    private fun openBottomSheet(food: Food) {
+        val bottomSheet = FoodBottomSheetFragment.newInstance(food)
+        bottomSheet.show(
+            parentFragmentManager, FoodBottomSheetFragment.TAG
+        )
+
     }
 
     override fun onResume() {
