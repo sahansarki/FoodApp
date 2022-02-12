@@ -12,6 +12,7 @@
 
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/foodCard"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -39,9 +40,9 @@
                 android:id="@+id/foodName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:maxLines="1"
                 android:gravity="center"
+                android:maxLines="1"
+                android:padding="5dp"
                 android:text="@{food.yemek_adi}"
                 app:layout_constraintEnd_toEndOf="@id/foodPhoto"
                 app:layout_constraintStart_toStartOf="@id/foodPhoto"
@@ -51,17 +52,30 @@
 
             <TextView
                 android:id="@+id/foodSalary"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:maxLines="1"
                 android:gravity="center"
+                android:maxLines="1"
+                android:padding="5dp"
                 android:text="@{food.yemek_fiyat}"
-                app:layout_constraintEnd_toEndOf="@id/foodName"
-                app:layout_constraintStart_toStartOf="@id/foodName"
+                app:layout_constraintEnd_toStartOf="@+id/textView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/foodName"
-                tools:layout_editor_absoluteY="148dp"
                 tools:text="50" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/tl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/foodSalary"
+                app:layout_constraintTop_toTopOf="@+id/foodSalary" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
