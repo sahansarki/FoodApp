@@ -114,8 +114,8 @@ class FoodBottomSheetFragment(private val food: Food) : BottomSheetDialogFragmen
                         }
 
                         RepositoryStatus.ERROR -> {
-                            Toast.makeText(requireContext(), it.error!!.message, Toast.LENGTH_SHORT).show()
-
+                            //Toast.makeText(requireContext(), it.error!!.message, Toast.LENGTH_SHORT).show()
+                            foodBottomSheetFragmentViewModel.addFoodToBasket(food, resultTotal)
                         }
                     }
                 }
