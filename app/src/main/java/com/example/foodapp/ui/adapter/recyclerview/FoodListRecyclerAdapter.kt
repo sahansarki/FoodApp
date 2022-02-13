@@ -11,7 +11,8 @@ import com.example.foodapp.ui.adapter.viewholder.FoodListViewHolder
 
 class FoodListRecyclerAdapter(
     private val foodList: ArrayList<BaseFoodModel>,
-    private val orderFood: (food: Food) -> Unit
+    private val orderFood: (food: Food) -> Unit,
+    private val deleteFoodItem: (food: FoodBasket) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
@@ -36,7 +37,7 @@ class FoodListRecyclerAdapter(
                 (holder as FoodListViewHolder).bind(foodList[position] as Food,orderFood)
             }
             FoodType.FOOD_BASKET.id -> {
-                (holder as FoodBasketListViewHolder).bind(foodList[position] as FoodBasket)
+                (holder as FoodBasketListViewHolder).bind(foodList[position] as FoodBasket, deleteFoodItem)
             }
         }
 
@@ -49,13 +50,21 @@ class FoodListRecyclerAdapter(
     }
 
     fun setFoodList(items: List<BaseFoodModel>) {
-        if(items[0] is FoodBasket){
-            items.forEach {
-                it.itemViewType = FoodType.FOOD_BASKET.id
+        when {
+            items.isEmpty() -> {
+                foodList.clear()
+                notifyDataSetChanged()
+                return
             }
-        } else {
-            items.forEach{
-                it.itemViewType = FoodType.FOOD.id
+            items[0] is FoodBasket -> {
+                items.forEach {
+                    it.itemViewType = FoodType.FOOD_BASKET.id
+                }
+            }
+            else -> {
+                items.forEach{
+                    it.itemViewType = FoodType.FOOD.id
+                }
             }
         }
         foodList.clear()
