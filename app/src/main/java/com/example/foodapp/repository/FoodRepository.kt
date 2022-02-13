@@ -6,7 +6,7 @@ import com.example.foodapp.data.remote.reqres.FoodsResponse
 import com.example.foodapp.utils.DataHolder
 
 interface FoodRepository {
-    suspend fun getAllFoods(): FoodsResponse
+    suspend fun getAllFoods(): DataHolder<FoodsResponse>
     suspend fun addFoodToBasket(
         food_name: String,
         food_photo_name: String,

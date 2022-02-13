@@ -10,8 +10,13 @@ import com.example.foodapp.utils.FoodError
 
 class FoodRepositoryImpl(private val foodApi: FoodApi): FoodRepository {
 
-    override suspend fun getAllFoods(): FoodsResponse {
-        return foodApi.getAllFoods()
+    override suspend fun getAllFoods(): DataHolder<FoodsResponse> {
+        val foodsResponse: DataHolder<FoodsResponse> = try{
+            DataHolder.success(foodApi.getAllFoods())
+        } catch (e: Exception){
+            DataHolder.error(FoodError(e.localizedMessage.toString()),null)
+        }
+        return foodsResponse
     }
 
 
