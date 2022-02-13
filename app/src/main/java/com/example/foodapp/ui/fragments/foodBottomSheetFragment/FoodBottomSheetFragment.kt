@@ -84,7 +84,7 @@ class FoodBottomSheetFragment(private val food: Food) : BottomSheetDialogFragmen
             if(foodTotal.text.toString().toInt() <= 0) return@setOnClickListener
             resultTotal = foodTotal.text.toString().toInt()
             foodBottomSheetFragmentViewModel.getFoodsFromBasket(Constants.USER_ID)
-            Toast.makeText(requireContext(),"Siparişiniz sepete eklendi!",Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),getString(R.string.response_for_add_food),Toast.LENGTH_SHORT).show()
         }
 
         observeFoodList()
@@ -114,7 +114,6 @@ class FoodBottomSheetFragment(private val food: Food) : BottomSheetDialogFragmen
                         }
 
                         RepositoryStatus.ERROR -> {
-                            //Toast.makeText(requireContext(), it.error!!.message, Toast.LENGTH_SHORT).show()
                             foodBottomSheetFragmentViewModel.addFoodToBasket(food, resultTotal)
                         }
                     }
