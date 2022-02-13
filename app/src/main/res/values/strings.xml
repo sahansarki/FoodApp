@@ -3,4 +3,9 @@
     <string name="tl">₺</string>
     <string name="zero">0</string>
     <string name="add_to_basket">Sepete Ekle</string>
+    <string name="total">Adet =</string>
+    <string name="delete_food">Sepetimden Sil</string>
+    <string name="my_basket">Sepetim</string>
+    <string name="menu">Menü</string>
+    <string name="basket">Sepetim</string>
 </resources>

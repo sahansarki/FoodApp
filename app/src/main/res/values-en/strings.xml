@@ -4,4 +4,9 @@
     <string name="tl">₺</string>
     <string name="zero">0</string>
     <string name="add_to_basket">Add To Basket</string>
+    <string name="total">Total =</string>
+    <string name="delete_food">Delete Food From Basket</string>
+    <string name="my_basket">My Basket</string>
+    <string name="menu">Menu</string>
+    <string name="basket">Basket</string>
 </resources>
