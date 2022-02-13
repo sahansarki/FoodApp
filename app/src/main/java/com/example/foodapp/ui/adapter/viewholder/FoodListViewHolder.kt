@@ -9,8 +9,8 @@ import com.example.foodapp.ui.extensions.loadImage
 import com.example.foodapp.utils.Constants.FOOD_PHOTOS_URL
 
 class FoodListViewHolder(
-        private val binding: FoodItemRowBinding,
-): RecyclerView.ViewHolder(binding.root) {
+    private val binding: FoodItemRowBinding,
+) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(food: Food, orderFood: (food: Food) -> Unit) {
         binding.food = food
@@ -21,11 +21,12 @@ class FoodListViewHolder(
 
     }
 
-    companion object{
+    companion object {
         fun create(
             parent: ViewGroup
-        ): FoodListViewHolder{
-            val view = FoodItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        ): FoodListViewHolder {
+            val view =
+                FoodItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             return FoodListViewHolder(view)
         }
     }
