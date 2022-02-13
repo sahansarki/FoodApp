@@ -4,4 +4,5 @@ import com.example.foodapp.model.Food
 
 data class FoodsResponse(
     val yemekler : List<Food>,
+    val success: String
 )
