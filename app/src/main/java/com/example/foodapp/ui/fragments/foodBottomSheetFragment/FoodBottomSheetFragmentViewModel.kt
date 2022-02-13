@@ -10,6 +10,7 @@ import com.example.foodapp.utils.DataHolder
 import com.example.foodapp.utils.FoodError
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -32,14 +33,16 @@ class FoodBottomSheetFragmentViewModel @Inject constructor(
 
     fun deleteFoodFromBasket(basket_food_id: Int, user_id: String){
         viewModelScope.launch {
-            foodRepository.deleteFoodFromBasket(basket_food_id, user_id)
+            val deferred = async(Dispatchers.IO){
+                foodRepository.deleteFoodFromBasket(basket_food_id,user_id)
+            }
+            deferred.await()
         }
     }
     fun getFoodsFromBasket(user_id: String){
         viewModelScope.launch(Dispatchers.Main) {
             val foodsFromBasketResponse = foodRepository.getFoodsFromBasket(user_id)
-            if(foodsFromBasketResponse.success.toInt() != 0) mutableFoodList.value = DataHolder.success(foodRepository.getFoodsFromBasket(user_id))
-            else mutableFoodList.value = DataHolder.error(FoodError("sepet boş"), null)
+            mutableFoodList.value = foodsFromBasketResponse
         }
 
     }
