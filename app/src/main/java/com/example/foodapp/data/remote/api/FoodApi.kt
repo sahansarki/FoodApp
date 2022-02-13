@@ -14,36 +14,36 @@ interface FoodApi {
     @FormUrlEncoded
     suspend fun addFoodToBasket(
         @Field("yemek_adi")
-        yemek_adi: String,
+        food_name: String,
         @Field("yemek_resim_adi")
-        yemek_resim_adi: String,
+        food_photo_name: String,
         @Field("yemek_fiyat")
-        yemek_fiyat: Int,
+        food_cost: Int,
         @Field("yemek_siparis_adet")
-        yemek_siparis_adet: Int,
+        food_total: Int,
         @Field("kullanici_adi")
-        kullanici_adi: String
+        user_id: String
     )
 
     @POST("sepettekiYemekleriGetir.php")
     @FormUrlEncoded
     suspend fun getFoodsFromBasket(
         @Field("kullanici_adi")
-        kullanici_adi: String
+        user_id: String
     ): FoodsFromBasketResponse
 
     @POST("sepettenYemekSil.php")
     @FormUrlEncoded
     suspend fun deleteFoodFromBasket(
         @Field("sepet_yemek_id")
-        sepet_yemek_id: Int,
+        basket_food_id: Int,
         @Field("kullanici_adi")
-        kullanici_adi: String
+        user_id: String
     ): DeleteFoodFromBasketResponse
 
     @GET("resimler/{foodName}")
     suspend fun getFoodsPhoto(
         @Path("foodName")
-        foodName: String
+        food_name: String
     )
 }

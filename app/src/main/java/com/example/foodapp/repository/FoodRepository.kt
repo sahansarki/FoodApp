@@ -3,17 +3,18 @@ package com.example.foodapp.repository
 import com.example.foodapp.data.remote.reqres.DeleteFoodFromBasketResponse
 import com.example.foodapp.data.remote.reqres.FoodsFromBasketResponse
 import com.example.foodapp.data.remote.reqres.FoodsResponse
+import com.example.foodapp.utils.DataHolder
 
 interface FoodRepository {
     suspend fun getAllFoods(): FoodsResponse
     suspend fun addFoodToBasket(
-        yemek_adi: String,
-        yemek_resim_adi: String,
-        yemek_fiyat: Int,
-        yemek_siparis_adet: Int,
-        kullanici_adi: String
+        food_name: String,
+        food_photo_name: String,
+        food_cost: Int,
+        food_total: Int,
+        user_id: String
     )
-    suspend fun getFoodsFromBasket(kullanici_adi: String): FoodsFromBasketResponse
-    suspend fun deleteFoodFromBasket(sepet_yemek_id: Int, kullanici_adi: String): DeleteFoodFromBasketResponse
-    suspend fun getFoodsPhoto(foodName: String)
+    suspend fun getFoodsFromBasket(user_id: String): DataHolder<FoodsFromBasketResponse>
+    suspend fun deleteFoodFromBasket(basket_food_id: Int, user_id: String): DeleteFoodFromBasketResponse
+    suspend fun getFoodsPhoto(food_name: String)
 }
