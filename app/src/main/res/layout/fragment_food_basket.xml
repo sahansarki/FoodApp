@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#191919"
+        android:background="@color/light_black"
         tools:context=".ui.fragments.foodListFragment.FoodListFragment">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -29,7 +29,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sepetim"
+                    android:text="@string/my_basket"
                     android:layout_gravity="center"
                     android:textSize="30sp"
                     android:textColor="@color/white"
