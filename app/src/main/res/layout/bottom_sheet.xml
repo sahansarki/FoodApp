@@ -66,21 +66,21 @@
             app:layout_constraintTop_toTopOf="@+id/foodSalary" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/plusIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:background="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+            app:layout_constraintBottom_toBottomOf="@+id/minusIcon"
             app:layout_constraintStart_toEndOf="@+id/foodTotal"
             app:layout_constraintTop_toTopOf="@+id/foodTotal"
             app:srcCompat="@drawable/ic_plus" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/minusIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="8dp"
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/foodPhoto"
             app:layout_constraintStart_toEndOf="@+id/foodPhoto"
@@ -93,22 +93,26 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
-            app:layout_constraintStart_toEndOf="@+id/imageButton2"
-            app:layout_constraintTop_toTopOf="@+id/imageButton2"
+            app:layout_constraintBottom_toBottomOf="@+id/minusIcon"
+            app:layout_constraintStart_toEndOf="@+id/minusIcon"
+            app:layout_constraintTop_toTopOf="@+id/minusIcon"
             android:text="@string/zero"
             tools:text="0" />
 
-        <TextView
+        <Button
             android:id="@+id/addToBasket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/montserrat_extrabold"
             android:text="@string/add_to_basket"
-            app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="@+id/plusIcon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageButton" />
+            app:layout_constraintStart_toEndOf="@+id/plusIcon"
+            app:layout_constraintTop_toTopOf="@+id/plusIcon" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
