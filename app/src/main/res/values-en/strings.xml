@@ -9,4 +9,5 @@
     <string name="my_basket">My Basket</string>
     <string name="menu">Menu</string>
     <string name="basket">Basket</string>
+    <string name="response_for_add_food">Your order has been added to your basket!</string>
 </resources>
