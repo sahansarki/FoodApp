@@ -11,6 +11,8 @@ import com.example.foodapp.databinding.FragmentFoodListBinding
 import com.example.foodapp.enums.RepositoryStatus
 import com.example.foodapp.model.Food
 import com.example.foodapp.ui.adapter.recyclerview.FoodListRecyclerAdapter
+import com.example.foodapp.ui.extensions.dismissProgress
+import com.example.foodapp.ui.extensions.showProgress
 import com.example.foodapp.ui.fragments.foodBottomSheetFragment.FoodBottomSheetFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -62,15 +64,16 @@ class FoodListFragment: BaseFragment<FragmentFoodListBinding>(FragmentFoodListBi
                 foodListFragmentViewModel.foodList.collect {
                     when(it.status){
                         RepositoryStatus.LOADING -> {
-
+                            requireContext().showProgress()
                         }
 
                         RepositoryStatus.OK -> {
+                            requireContext().dismissProgress()
                             foodListAdapter.setFoodList(it.data!!.yemekler)
                         }
 
                         RepositoryStatus.ERROR -> {
-
+                            requireContext().dismissProgress()
                         }
                     }
                 }
