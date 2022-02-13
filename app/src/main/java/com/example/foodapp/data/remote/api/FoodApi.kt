@@ -25,13 +25,15 @@ interface FoodApi {
         kullanici_adi: String
     )
 
-    @GET("sepettekiYemekleriGetir.php")
+    @POST("sepettekiYemekleriGetir.php")
+    @FormUrlEncoded
     suspend fun getFoodsFromBasket(
         @Field("kullanici_adi")
         kullanici_adi: String
     ): FoodsFromBasketResponse
 
     @POST("sepettenYemekSil.php")
+    @FormUrlEncoded
     suspend fun deleteFoodFromBasket(
         @Field("sepet_yemek_id")
         sepet_yemek_id: Int,
