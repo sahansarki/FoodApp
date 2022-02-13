@@ -53,9 +53,6 @@ class FoodListFragment: BaseFragment<FragmentFoodListBinding>(FragmentFoodListBi
 
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
 
     private fun observeFoodList() {
         viewLifecycleOwner.lifecycleScope.launch {
