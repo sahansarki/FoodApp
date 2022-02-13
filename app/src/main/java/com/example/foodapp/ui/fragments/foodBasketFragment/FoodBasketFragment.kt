@@ -7,14 +7,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.foodapp.R
 import com.example.foodapp.base.BaseFragment
 import com.example.foodapp.databinding.FragmentFoodBasketBinding
 import com.example.foodapp.enums.RepositoryStatus
-import com.example.foodapp.ui.adapter.recyclerview.FoodBasketListRecyclerAdapter
 import com.example.foodapp.ui.adapter.recyclerview.FoodListRecyclerAdapter
-import com.example.foodapp.ui.fragments.foodListFragment.FoodListFragmentViewModel
 import com.example.foodapp.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -29,7 +26,7 @@ class FoodBasketFragment: BaseFragment<FragmentFoodBasketBinding>(FragmentFoodBa
         fun newInstance() = FoodBasketFragment()
     }
 
-    private lateinit var foodListAdapter: FoodBasketListRecyclerAdapter
+    private lateinit var foodListAdapter: FoodListRecyclerAdapter
     private val foodBasketFragmentViewModel: FoodBasketFragmentViewModel by viewModels()
 
     override fun getLayoutResId(): Int = R.layout.fragment_food_basket
@@ -37,7 +34,9 @@ class FoodBasketFragment: BaseFragment<FragmentFoodBasketBinding>(FragmentFoodBa
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        foodListAdapter = FoodBasketListRecyclerAdapter(arrayListOf())
+        foodListAdapter = FoodListRecyclerAdapter(arrayListOf()){
+
+        }
 
         with(fragmentDataBinding.foodBasketListRecyclerView) {
             layoutManager = LinearLayoutManager(
