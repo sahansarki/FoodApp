@@ -32,8 +32,10 @@ class FoodListFragment: BaseFragment<FragmentFoodListBinding>(FragmentFoodListBi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        foodListAdapter = FoodListRecyclerAdapter(arrayListOf()){
+        foodListAdapter = FoodListRecyclerAdapter(arrayListOf(),{
             openBottomSheet(it)
+        }) {
+
         }
 
         with(fragmentDataBinding.foodListRecyclerView) {
