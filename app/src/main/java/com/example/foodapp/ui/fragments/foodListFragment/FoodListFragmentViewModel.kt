@@ -24,7 +24,7 @@ class FoodListFragmentViewModel @Inject constructor(
 
     fun getAllFoods(){
         viewModelScope.launch(Dispatchers.Main) {
-            mutableFoodList.value = DataHolder.success(foodRepository.getAllFoods())
+            mutableFoodList.value = foodRepository.getAllFoods()
         }
     }
 
