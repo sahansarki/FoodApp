@@ -2,6 +2,7 @@ package com.example.foodapp.ui.fragments.foodBasketFragment
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -34,8 +35,11 @@ class FoodBasketFragment: BaseFragment<FragmentFoodBasketBinding>(FragmentFoodBa
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        foodListAdapter = FoodListRecyclerAdapter(arrayListOf()){
+        foodListAdapter = FoodListRecyclerAdapter(arrayListOf(),{
 
+        }) {
+            foodBasketFragmentViewModel.deleteFoodFromBasket(it.sepet_yemek_id.toInt(), it.kullanici_adi)
+            foodBasketFragmentViewModel.getFoodsFromBasket(Constants.USER_ID)
         }
 
         with(fragmentDataBinding.foodBasketListRecyclerView) {
@@ -59,23 +63,18 @@ class FoodBasketFragment: BaseFragment<FragmentFoodBasketBinding>(FragmentFoodBa
                         RepositoryStatus.LOADING -> {
 
                         }
-
                         RepositoryStatus.OK -> {
                             foodListAdapter.setFoodList(it.data!!.sepet_yemekler)
                         }
 
                         RepositoryStatus.ERROR -> {
-
+                            Toast.makeText(requireContext(), it.error!!.message, Toast.LENGTH_SHORT).show()
+                            foodListAdapter.setFoodList(listOf())
                         }
                     }
                 }
             }
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
 
 }
