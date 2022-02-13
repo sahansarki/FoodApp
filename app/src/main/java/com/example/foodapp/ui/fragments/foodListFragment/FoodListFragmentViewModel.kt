@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.foodapp.base.BaseViewModel
 import com.example.foodapp.data.remote.reqres.FoodsResponse
 import com.example.foodapp.data.repository.FoodRepositoryImpl
+import com.example.foodapp.model.Food
 import com.example.foodapp.repository.FoodRepository
 import com.example.foodapp.utils.DataHolder
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FoodListFragmentViewModel @Inject constructor(
-    private val foodRepositoryImpl: FoodRepository
+    private val foodRepository: FoodRepository
 ): BaseViewModel() {
 
     private val mutableFoodList =  MutableStateFlow<DataHolder<FoodsResponse>>(DataHolder.loading())
@@ -23,8 +24,7 @@ class FoodListFragmentViewModel @Inject constructor(
 
     fun getAllFoods(){
         viewModelScope.launch(Dispatchers.Main) {
-
-            mutableFoodList.value = DataHolder.success(foodRepositoryImpl.getAllFoods())
+            mutableFoodList.value = DataHolder.success(foodRepository.getAllFoods())
         }
     }
 
