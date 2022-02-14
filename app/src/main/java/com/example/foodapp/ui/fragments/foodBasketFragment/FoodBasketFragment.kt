@@ -23,12 +23,6 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class FoodBasketFragment: BaseFragment<FragmentFoodBasketBinding>(FragmentFoodBasketBinding::inflate) {
 
-    companion object {
-
-        @JvmStatic
-        fun newInstance() = FoodBasketFragment()
-    }
-
     private lateinit var foodListAdapter: FoodListRecyclerAdapter
     private val foodBasketFragmentViewModel: FoodBasketFragmentViewModel by viewModels()
 
