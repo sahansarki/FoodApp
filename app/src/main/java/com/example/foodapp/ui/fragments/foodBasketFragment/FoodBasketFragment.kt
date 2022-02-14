@@ -31,7 +31,7 @@ class FoodBasketFragment: BaseFragment<FragmentFoodBasketBinding>(FragmentFoodBa
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        foodListAdapter = FoodListRecyclerAdapter(arrayListOf(),{
+        foodListAdapter = FoodListRecyclerAdapter({
 
         }) {
             foodBasketFragmentViewModel.deleteFoodFromBasket(it.sepet_yemek_id.toInt(), it.kullanici_adi)
