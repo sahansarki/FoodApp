@@ -13,16 +13,19 @@ import com.example.foodapp.ui.extensions.loadImage
 import com.example.foodapp.utils.Constants
 
 class FoodBasketListViewHolder(
-    private val mContext: Context,
-    private val binding: FoodBasketItemRowBinding
+    mContext: Context,
+    binding: FoodBasketItemRowBinding
 ): RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(food: FoodBasket, deleteFoodItem: (food: FoodBasket) -> Unit) {
-        binding.food = food
-        binding.foodPhoto.loadImage(Constants.FOOD_PHOTOS_URL + food.yemek_resim_adi)
-        binding.foodSalary.text = (food.yemek_fiyat.toInt() * food.yemek_siparis_adet.toInt()).toString()
-        binding.foodCardMore.setOnClickListener {
-            val popup = PopupMenu(mContext,it)
+    val bindingLocal = binding
+    val contextLocal = mContext
+
+    inline fun bind(food: FoodBasket, crossinline deleteFoodItem: (food: FoodBasket) -> Unit) {
+        bindingLocal.food = food
+        bindingLocal.foodPhoto.loadImage(Constants.FOOD_PHOTOS_URL + food.yemek_resim_adi)
+        bindingLocal.foodSalary.text = (food.yemek_fiyat.toInt() * food.yemek_siparis_adet.toInt()).toString()
+        bindingLocal.foodCardMore.setOnClickListener {
+            val popup = PopupMenu(contextLocal,it)
             popup.menuInflater.inflate(R.menu.basket_item_menu, popup.menu)
             popup.show()
 

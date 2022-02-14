@@ -9,13 +9,15 @@ import com.example.foodapp.ui.extensions.loadImage
 import com.example.foodapp.utils.Constants.FOOD_PHOTOS_URL
 
 class FoodListViewHolder(
-    private val binding: FoodItemRowBinding,
+    binding: FoodItemRowBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(food: Food, orderFood: (food: Food) -> Unit) {
-        binding.food = food
-        binding.foodPhoto.loadImage(FOOD_PHOTOS_URL + food.yemek_resim_adi)
-        binding.foodCard.setOnClickListener {
+    val localBinding = binding
+
+    inline fun bind(food: Food, crossinline orderFood: (food: Food) -> Unit) {
+        localBinding.food = food
+        localBinding.foodPhoto.loadImage(FOOD_PHOTOS_URL + food.yemek_resim_adi)
+        localBinding.foodCard.setOnClickListener {
             orderFood(food)
         }
 
