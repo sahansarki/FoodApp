@@ -67,7 +67,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:maxLines="1"
-                android:padding="5dp"
                 android:text="@{food.yemek_adi}"
                 app:layout_constraintStart_toStartOf="@id/foodPhoto"
                 app:layout_constraintTop_toBottomOf="@id/foodPhoto"
@@ -79,7 +78,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:maxLines="1"
-                android:padding="5dp"
                 tools:text="150"
                 app:layout_constraintEnd_toStartOf="@+id/foodSalaryCurrency"
                 app:layout_constraintHorizontal_chainStyle="packed"
@@ -92,7 +90,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="@string/tl"
                 app:layout_constraintStart_toEndOf="@+id/foodSalary"
                 app:layout_constraintTop_toTopOf="@+id/foodSalary" />
