@@ -7,7 +7,6 @@ import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodapp.R
 import com.example.foodapp.databinding.FoodBasketItemRowBinding
-import com.example.foodapp.model.Food
 import com.example.foodapp.model.FoodBasket
 import com.example.foodapp.ui.extensions.loadImage
 import com.example.foodapp.utils.Constants

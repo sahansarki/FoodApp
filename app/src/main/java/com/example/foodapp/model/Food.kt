@@ -1,8 +1,6 @@
 package com.example.foodapp.model
 
-
 import android.os.Parcelable
-import com.example.foodapp.enums.FoodType
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 

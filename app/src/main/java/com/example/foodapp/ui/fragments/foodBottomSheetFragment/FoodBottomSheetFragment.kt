@@ -1,7 +1,6 @@
 package com.example.foodapp.ui.fragments.foodBottomSheetFragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +20,6 @@ import com.example.foodapp.model.Food
 import com.example.foodapp.ui.extensions.loadImage
 import com.example.foodapp.utils.Constants
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

@@ -7,7 +7,6 @@ import com.example.foodapp.model.Food
 import com.example.foodapp.repository.FoodRepository
 import com.example.foodapp.utils.Constants
 import com.example.foodapp.utils.DataHolder
-import com.example.foodapp.utils.FoodError
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
