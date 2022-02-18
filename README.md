@@ -3,9 +3,10 @@
 ## Description
 This is a graduate project given by Devnot-Innova Bootcamp
 
-![Screenshot_1645191168](https://user-images.githubusercontent.com/33380375/154693968-b02469d5-774e-445f-b80f-55573883f679.png)|![Screenshot_1645191172](https://user-images.githubusercontent.com/33380375/154694034-db563075-35fc-4620-b40a-97085a347459.png)
-![Screenshot_1645191186](https://user-images.githubusercontent.com/33380375/154694101-b0d5cde1-29fc-4deb-8552-36ba648fd4b4.png)
-![Screenshot_1645191214](https://user-images.githubusercontent.com/33380375/154694158-7fecbcb9-6604-4893-a006-990aac25de0b.png)
+![food_ss_0](https://user-images.githubusercontent.com/33380375/154696977-ab54248e-ceff-4105-9ce0-bede4f650936.png)
+![food_ss_1](https://user-images.githubusercontent.com/33380375/154696982-b8f0ef35-40a2-4666-9847-48d9598558b0.png)
+![food_ss_2](https://user-images.githubusercontent.com/33380375/154696995-c6fa20d1-01d4-404e-b111-5ca6e378105a.png)
+![food_ss_3](https://user-images.githubusercontent.com/33380375/154697002-be10ab2c-0ab2-406a-866b-c8f3349aee4d.png)
 
 ## This application contains
 
